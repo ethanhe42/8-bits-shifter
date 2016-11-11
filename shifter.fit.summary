@@ -1,0 +1,13 @@
+Flow Status : Successful - Fri Nov 11 21:36:25 2016
+Quartus II Version : 5.0 Build 148 04/26/2005 SJ Full Version
+Revision Name : shifter
+Top-level Entity Name : shifter
+Family : Cyclone
+Device : EP1C6Q240C6
+Timing Models : Final
+Met timing requirements : N/A
+Total logic elements : 76 / 5,980 ( 1 % )
+Total pins : 24 / 185 ( 12 % )
+Total virtual pins : 0
+Total memory bits : 0 / 92,160 ( 0 % )
+Total PLLs : 0 / 2 ( 0 % )

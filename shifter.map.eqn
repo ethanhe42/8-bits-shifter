@@ -1,0 +1,741 @@
+-- Copyright (C) 1991-2005 Altera Corporation
+-- Your use of Altera Corporation's design tools, logic functions 
+-- and other software and tools, and its AMPP partner logic 
+-- functions, and any output files any of the foregoing 
+-- (including device programming or simulation files), and any 
+-- associated documentation or information are expressly subject 
+-- to the terms and conditions of the Altera Program License 
+-- Subscription Agreement, Altera MegaCore Function License 
+-- Agreement, or other applicable license agreement, including, 
+-- without limitation, that your use is for the sole purpose of 
+-- programming logic devices manufactured by Altera and sold by 
+-- Altera or its authorized distributors.  Please refer to the 
+-- applicable agreement for further details.
+--A1L51Q is data_out[0]~reg0
+--operation mode is normal
+
+A1L51Q_lut_out = A1L31 & (A1L25) # !A1L31 & A1L44;
+A1L51Q = DFFEAS(A1L51Q_lut_out, clock, VCC, , A1L41, A1L65, , , !n[2]);
+
+
+--A1L71Q is data_out[1]~reg0
+--operation mode is normal
+
+A1L71Q_lut_out = A1L31 & (A1L06) # !A1L31 & A1L44;
+A1L71Q = DFFEAS(A1L71Q_lut_out, clock, VCC, , A1L41, A1L66, , , !n[2]);
+
+
+--A1L91Q is data_out[2]~reg0
+--operation mode is normal
+
+A1L91Q_lut_out = A1L31 & (A1L47) # !A1L31 & A1L44;
+A1L91Q = DFFEAS(A1L91Q_lut_out, clock, VCC, , A1L41, A1L87, , , !n[2]);
+
+
+--A1L12Q is data_out[3]~reg0
+--operation mode is normal
+
+A1L12Q_lut_out = A1L31 & (A1L78) # !A1L31 & A1L44;
+A1L12Q = DFFEAS(A1L12Q_lut_out, clock, VCC, , A1L41, A1L19, , , !n[2]);
+
+
+--A1L42Q is data_out[4]~reg0
+--operation mode is normal
+
+A1L42Q_lut_out = A1L32 & (A1L65) # !A1L32 & A1L68;
+A1L42Q = DFFEAS(A1L42Q_lut_out, clock, VCC, , A1L41, A1L25, , , !n[2]);
+
+
+--A1L62Q is data_out[5]~reg0
+--operation mode is normal
+
+A1L62Q_lut_out = A1L32 & (A1L66) # !A1L32 & A1L68;
+A1L62Q = DFFEAS(A1L62Q_lut_out, clock, VCC, , A1L41, A1L06, , , !n[2]);
+
+
+--A1L82Q is data_out[6]~reg0
+--operation mode is normal
+
+A1L82Q_lut_out = A1L32 & (A1L87) # !A1L32 & A1L68;
+A1L82Q = DFFEAS(A1L82Q_lut_out, clock, VCC, , A1L41, A1L47, , , !n[2]);
+
+
+--A1L03Q is data_out[7]~reg0
+--operation mode is normal
+
+A1L03Q_lut_out = A1L32 & (A1L19) # !A1L32 & A1L68;
+A1L03Q = DFFEAS(A1L03Q_lut_out, clock, VCC, , A1L41, A1L78, , , !n[2]);
+
+
+--qtemp[2] is qtemp[2]
+--operation mode is normal
+
+qtemp[2]_lut_out = A1L87;
+qtemp[2] = DFFEAS(qtemp[2]_lut_out, clock, VCC, , , data_in[2], rst, , );
+
+
+--A1L53 is Mux~2311
+--operation mode is normal
+
+A1L53 = n[1] & (kind[1] # dir);
+
+
+--qtemp[0] is qtemp[0]
+--operation mode is normal
+
+qtemp[0]_lut_out = A1L65;
+qtemp[0] = DFFEAS(qtemp[0]_lut_out, clock, VCC, , , data_in[0], rst, , );
+
+
+--A1L63 is Mux~2312
+--operation mode is normal
+
+A1L63 = n[1] & (kind[0] & kind[1] # !dir);
+
+
+--qtemp[7] is qtemp[7]
+--operation mode is normal
+
+qtemp[7]_lut_out = A1L78;
+qtemp[7] = DFFEAS(qtemp[7]_lut_out, clock, VCC, , , data_in[7], rst, , );
+
+
+--x[0] is x[0]
+--operation mode is normal
+
+x[0]_lut_out = A1L14;
+x[0] = DFFEAS(x[0]_lut_out, clock, VCC, , !rst, , , , );
+
+
+--A1L73 is Mux~2313
+--operation mode is normal
+
+A1L73 = kind[0] & (x[0]) # !kind[0] & qtemp[7];
+
+
+--A1L83 is Mux~2314
+--operation mode is normal
+
+A1L83 = n[0] & (kind[0] & (!kind[1]) # !kind[0] & dir);
+
+
+--A1L93 is Mux~2315
+--operation mode is normal
+
+A1L93 = kind[1] & (kind[0] # !dir & n[0]) # !kind[1] & !dir & n[0] & kind[0];
+
+
+--A1L04 is Mux~2316
+--operation mode is normal
+
+A1L04 = A1L83 & data_in[1] & !A1L93 # !A1L83 & (A1L93);
+
+
+--A1L14 is Mux~2317
+--operation mode is normal
+
+A1L14 = A1L83 & (A1L04) # !A1L83 & (A1L04 & (A1L73) # !A1L04 & qtemp[0]);
+
+
+--A1L24 is Mux~2318
+--operation mode is normal
+
+A1L24 = A1L53 & (A1L63) # !A1L53 & (A1L63 & qtemp[0] # !A1L63 & (A1L14));
+
+
+--qtemp[6] is qtemp[6]
+--operation mode is normal
+
+qtemp[6]_lut_out = A1L47;
+qtemp[6] = DFFEAS(qtemp[6]_lut_out, clock, VCC, , , data_in[6], rst, , );
+
+
+--A1L34 is Mux~2319
+--operation mode is normal
+
+A1L34 = A1L53 & (A1L24 & (qtemp[6]) # !A1L24 & qtemp[2]) # !A1L53 & (A1L24);
+
+
+--A1L44 is Mux~2320
+--operation mode is normal
+
+A1L44 = A1L34 & (!kind[0]);
+
+
+--y[4] is y[4]
+--operation mode is normal
+
+y[4]_lut_out = A1L25;
+y[4] = DFFEAS(y[4]_lut_out, clock, VCC, , !rst, , , , );
+
+
+--A1L54 is Mux~2321
+--operation mode is normal
+
+A1L54 = kind[0] & (kind[1] # dir & n[1]) # !kind[0] & dir & n[1];
+
+
+--A1L64 is Mux~2322
+--operation mode is normal
+
+A1L64 = n[1] & (!kind[1] # !kind[0]);
+
+
+--x[4] is x[4]
+--operation mode is normal
+
+x[4]_lut_out = A1L05;
+x[4] = DFFEAS(x[4]_lut_out, clock, VCC, , !rst, , , , );
+
+
+--A1L74 is Mux~2323
+--operation mode is normal
+
+A1L74 = kind[0] & (kind[1] # dir & n[0]) # !kind[0] & dir & n[0];
+
+
+--qtemp[3] is qtemp[3]
+--operation mode is normal
+
+qtemp[3]_lut_out = A1L19;
+qtemp[3] = DFFEAS(qtemp[3]_lut_out, clock, VCC, , , data_in[3], rst, , );
+
+
+--A1L84 is Mux~2324
+--operation mode is normal
+
+A1L84 = n[0] & (!kind[1] # !kind[0]);
+
+
+--qtemp[4] is qtemp[4]
+--operation mode is normal
+
+qtemp[4]_lut_out = A1L25;
+qtemp[4] = DFFEAS(qtemp[4]_lut_out, clock, VCC, , , data_in[4], rst, , );
+
+
+--A1L94 is Mux~2325
+--operation mode is normal
+
+A1L94 = A1L74 & (A1L84) # !A1L74 & (A1L84 & qtemp[3] # !A1L84 & (qtemp[4]));
+
+
+--A1L05 is Mux~2326
+--operation mode is normal
+
+A1L05 = A1L74 & (A1L94 & (data_in[5]) # !A1L94 & x[4]) # !A1L74 & (A1L94);
+
+
+--A1L15 is Mux~2327
+--operation mode is normal
+
+A1L15 = A1L54 & (A1L64) # !A1L54 & (A1L64 & qtemp[2] # !A1L64 & (A1L05));
+
+
+--A1L25 is Mux~2328
+--operation mode is normal
+
+A1L25 = A1L54 & (A1L15 & (qtemp[6]) # !A1L15 & y[4]) # !A1L54 & (A1L15);
+
+
+--A1L35 is Mux~2329
+--operation mode is normal
+
+A1L35 = kind[0] & (!kind[1]);
+
+
+--A1L45 is Mux~2330
+--operation mode is normal
+
+A1L45 = A1L34 & A1L35 & (dir # !n[1]);
+
+
+--A1L55 is Mux~2331
+--operation mode is normal
+
+A1L55 = kind[0] & kind[1];
+
+
+--y[0] is y[0]
+--operation mode is normal
+
+y[0]_lut_out = A1L65;
+y[0] = DFFEAS(y[0]_lut_out, clock, VCC, , !rst, , , , );
+
+
+--A1L65 is Mux~2332
+--operation mode is normal
+
+A1L65 = A1L44 # A1L45 # A1L55 & y[0];
+
+
+--A1L31 is data_out[0]~85
+--operation mode is normal
+
+A1L31 = kind[1] # dir;
+
+
+--A1L41 is data_out[0]~86
+--operation mode is normal
+
+A1L41 = !rst & (!kind[1] # !kind[0]);
+
+
+--y[5] is y[5]
+--operation mode is normal
+
+y[5]_lut_out = A1L06;
+y[5] = DFFEAS(y[5]_lut_out, clock, VCC, , !rst, , , , );
+
+
+--x[5] is x[5]
+--operation mode is normal
+
+x[5]_lut_out = A1L85;
+x[5] = DFFEAS(x[5]_lut_out, clock, VCC, , !rst, , , , );
+
+
+--qtemp[5] is qtemp[5]
+--operation mode is normal
+
+qtemp[5]_lut_out = A1L06;
+qtemp[5] = DFFEAS(qtemp[5]_lut_out, clock, VCC, , , data_in[5], rst, , );
+
+
+--A1L75 is Mux~2333
+--operation mode is normal
+
+A1L75 = A1L74 & (A1L84) # !A1L74 & (A1L84 & qtemp[4] # !A1L84 & (qtemp[5]));
+
+
+--A1L85 is Mux~2334
+--operation mode is normal
+
+A1L85 = A1L74 & (A1L75 & (data_in[6]) # !A1L75 & x[5]) # !A1L74 & (A1L75);
+
+
+--A1L95 is Mux~2335
+--operation mode is normal
+
+A1L95 = A1L64 & (A1L54) # !A1L64 & (A1L54 & y[5] # !A1L54 & (A1L85));
+
+
+--A1L06 is Mux~2336
+--operation mode is normal
+
+A1L06 = A1L64 & (A1L95 & (qtemp[7]) # !A1L95 & qtemp[3]) # !A1L64 & (A1L95);
+
+
+--A1L16 is Mux~2337
+--operation mode is normal
+
+A1L16 = !kind[1] & (dir # !n[1]) # !kind[0];
+
+
+--x[1] is x[1]
+--operation mode is normal
+
+x[1]_lut_out = A1L36;
+x[1] = DFFEAS(x[1]_lut_out, clock, VCC, , !rst, , , , );
+
+
+--qtemp[1] is qtemp[1]
+--operation mode is normal
+
+qtemp[1]_lut_out = A1L66;
+qtemp[1] = DFFEAS(qtemp[1]_lut_out, clock, VCC, , , data_in[1], rst, , );
+
+
+--A1L26 is Mux~2338
+--operation mode is normal
+
+A1L26 = A1L84 & (A1L74) # !A1L84 & (A1L74 & x[1] # !A1L74 & (qtemp[1]));
+
+
+--A1L36 is Mux~2339
+--operation mode is normal
+
+A1L36 = A1L84 & (A1L26 & (data_in[2]) # !A1L26 & qtemp[0]) # !A1L84 & (A1L26);
+
+
+--A1L46 is Mux~2340
+--operation mode is normal
+
+A1L46 = A1L63 & (A1L53) # !A1L63 & (A1L53 & qtemp[3] # !A1L53 & (A1L36));
+
+
+--A1L56 is Mux~2341
+--operation mode is normal
+
+A1L56 = A1L63 & (A1L46 & (qtemp[7]) # !A1L46 & qtemp[0]) # !A1L63 & (A1L46);
+
+
+--y[1] is y[1]
+--operation mode is normal
+
+y[1]_lut_out = A1L66;
+y[1] = DFFEAS(y[1]_lut_out, clock, VCC, , !rst, , , , );
+
+
+--A1L66 is Mux~2342
+--operation mode is normal
+
+A1L66 = A1L55 & (y[1] # A1L16 & A1L56) # !A1L55 & A1L16 & A1L56;
+
+
+--A1L76 is Mux~2343
+--operation mode is normal
+
+A1L76 = !kind[1] & (!n[1] # !dir) # !kind[0];
+
+
+--A1L86 is Mux~2344
+--operation mode is normal
+
+A1L86 = n[1] & (kind[1] # !dir);
+
+
+--A1L96 is Mux~2345
+--operation mode is normal
+
+A1L96 = n[1] & (dir # kind[0] & kind[1]);
+
+
+--x[6] is x[6]
+--operation mode is normal
+
+x[6]_lut_out = A1L17;
+x[6] = DFFEAS(x[6]_lut_out, clock, VCC, , !rst, , , , );
+
+
+--A1L07 is Mux~2346
+--operation mode is normal
+
+A1L07 = A1L74 & (A1L84) # !A1L74 & (A1L84 & qtemp[5] # !A1L84 & (qtemp[6]));
+
+
+--A1L17 is Mux~2347
+--operation mode is normal
+
+A1L17 = A1L74 & (A1L07 & (data_in[7]) # !A1L07 & x[6]) # !A1L74 & (A1L07);
+
+
+--A1L27 is Mux~2348
+--operation mode is normal
+
+A1L27 = A1L86 & (A1L96) # !A1L86 & (A1L96 & qtemp[7] # !A1L96 & (A1L17));
+
+
+--A1L37 is Mux~2349
+--operation mode is normal
+
+A1L37 = A1L86 & (A1L27 & (qtemp[0]) # !A1L27 & qtemp[4]) # !A1L86 & (A1L27);
+
+
+--y[6] is y[6]
+--operation mode is normal
+
+y[6]_lut_out = A1L47;
+y[6] = DFFEAS(y[6]_lut_out, clock, VCC, , !rst, , , , );
+
+
+--A1L47 is Mux~2350
+--operation mode is normal
+
+A1L47 = A1L55 & (y[6] # A1L76 & A1L37) # !A1L55 & A1L76 & A1L37;
+
+
+--y[2] is y[2]
+--operation mode is normal
+
+y[2]_lut_out = A1L87;
+y[2] = DFFEAS(y[2]_lut_out, clock, VCC, , !rst, , , , );
+
+
+--x[2] is x[2]
+--operation mode is normal
+
+x[2]_lut_out = A1L67;
+x[2] = DFFEAS(x[2]_lut_out, clock, VCC, , !rst, , , , );
+
+
+--A1L57 is Mux~2351
+--operation mode is normal
+
+A1L57 = A1L84 & (A1L74) # !A1L84 & (A1L74 & x[2] # !A1L74 & (qtemp[2]));
+
+
+--A1L67 is Mux~2352
+--operation mode is normal
+
+A1L67 = A1L84 & (A1L57 & (data_in[3]) # !A1L57 & qtemp[1]) # !A1L84 & (A1L57);
+
+
+--A1L77 is Mux~2353
+--operation mode is normal
+
+A1L77 = A1L54 & (A1L64) # !A1L54 & (A1L64 & qtemp[0] # !A1L64 & (A1L67));
+
+
+--A1L87 is Mux~2354
+--operation mode is normal
+
+A1L87 = A1L54 & (A1L77 & (qtemp[4]) # !A1L77 & y[2]) # !A1L54 & (A1L77);
+
+
+--x[7] is x[7]
+--operation mode is normal
+
+x[7]_lut_out = A1L28;
+x[7] = DFFEAS(x[7]_lut_out, clock, VCC, , !rst, , , , );
+
+
+--A1L97 is Mux~2355
+--operation mode is normal
+
+A1L97 = kind[0] & (kind[1]) # !kind[0] & (kind[1] & data_in[0] # !kind[1] & (data_in[7]));
+
+
+--A1L08 is Mux~2356
+--operation mode is normal
+
+A1L08 = n[0] & dir # !n[0] & (qtemp[7]);
+
+
+--A1L18 is Mux~2357
+--operation mode is normal
+
+A1L18 = n[0] & (A1L08 & (A1L97) # !A1L08 & qtemp[6]) # !n[0] & (A1L08);
+
+
+--A1L28 is Mux~2358
+--operation mode is normal
+
+A1L28 = kind[0] & (A1L97 & x[7] # !A1L97 & (A1L18)) # !kind[0] & (A1L18);
+
+
+--A1L38 is Mux~2359
+--operation mode is normal
+
+A1L38 = A1L96 & (A1L86) # !A1L96 & (A1L86 & qtemp[5] # !A1L86 & (A1L28));
+
+
+--A1L48 is Mux~2360
+--operation mode is normal
+
+A1L48 = A1L96 & (A1L38 & (qtemp[1]) # !A1L38 & qtemp[7]) # !A1L96 & (A1L38);
+
+
+--A1L58 is Mux~2361
+--operation mode is normal
+
+A1L58 = A1L35 & A1L48 & (!n[1] # !dir);
+
+
+--A1L68 is Mux~2362
+--operation mode is normal
+
+A1L68 = A1L48 & (!kind[0]);
+
+
+--y[7] is y[7]
+--operation mode is normal
+
+y[7]_lut_out = A1L78;
+y[7] = DFFEAS(y[7]_lut_out, clock, VCC, , !rst, , , , );
+
+
+--A1L78 is Mux~2363
+--operation mode is normal
+
+A1L78 = A1L58 # A1L68 # A1L55 & y[7];
+
+
+--y[3] is y[3]
+--operation mode is normal
+
+y[3]_lut_out = A1L19;
+y[3] = DFFEAS(y[3]_lut_out, clock, VCC, , !rst, , , , );
+
+
+--x[3] is x[3]
+--operation mode is normal
+
+x[3]_lut_out = A1L98;
+x[3] = DFFEAS(x[3]_lut_out, clock, VCC, , !rst, , , , );
+
+
+--A1L88 is Mux~2364
+--operation mode is normal
+
+A1L88 = A1L84 & (A1L74) # !A1L84 & (A1L74 & x[3] # !A1L74 & (qtemp[3]));
+
+
+--A1L98 is Mux~2365
+--operation mode is normal
+
+A1L98 = A1L84 & (A1L88 & (data_in[4]) # !A1L88 & qtemp[2]) # !A1L84 & (A1L88);
+
+
+--A1L09 is Mux~2366
+--operation mode is normal
+
+A1L09 = A1L64 & (A1L54) # !A1L64 & (A1L54 & y[3] # !A1L54 & (A1L98));
+
+
+--A1L19 is Mux~2367
+--operation mode is normal
+
+A1L19 = A1L64 & (A1L09 & (qtemp[5]) # !A1L09 & qtemp[1]) # !A1L64 & (A1L09);
+
+
+--A1L32 is data_out[4]~87
+--operation mode is normal
+
+A1L32 = kind[1] # !dir;
+
+
+--clock is clock
+--operation mode is input
+
+clock = INPUT();
+
+
+--n[1] is n[1]
+--operation mode is input
+
+n[1] = INPUT();
+
+
+--kind[1] is kind[1]
+--operation mode is input
+
+kind[1] = INPUT();
+
+
+--dir is dir
+--operation mode is input
+
+dir = INPUT();
+
+
+--kind[0] is kind[0]
+--operation mode is input
+
+kind[0] = INPUT();
+
+
+--n[0] is n[0]
+--operation mode is input
+
+n[0] = INPUT();
+
+
+--data_in[1] is data_in[1]
+--operation mode is input
+
+data_in[1] = INPUT();
+
+
+--data_in[5] is data_in[5]
+--operation mode is input
+
+data_in[5] = INPUT();
+
+
+--n[2] is n[2]
+--operation mode is input
+
+n[2] = INPUT();
+
+
+--rst is rst
+--operation mode is input
+
+rst = INPUT();
+
+
+--data_in[6] is data_in[6]
+--operation mode is input
+
+data_in[6] = INPUT();
+
+
+--data_in[2] is data_in[2]
+--operation mode is input
+
+data_in[2] = INPUT();
+
+
+--data_in[7] is data_in[7]
+--operation mode is input
+
+data_in[7] = INPUT();
+
+
+--data_in[3] is data_in[3]
+--operation mode is input
+
+data_in[3] = INPUT();
+
+
+--data_in[0] is data_in[0]
+--operation mode is input
+
+data_in[0] = INPUT();
+
+
+--data_in[4] is data_in[4]
+--operation mode is input
+
+data_in[4] = INPUT();
+
+
+--data_out[0] is data_out[0]
+--operation mode is output
+
+data_out[0] = OUTPUT(A1L51Q);
+
+
+--data_out[1] is data_out[1]
+--operation mode is output
+
+data_out[1] = OUTPUT(A1L71Q);
+
+
+--data_out[2] is data_out[2]
+--operation mode is output
+
+data_out[2] = OUTPUT(A1L91Q);
+
+
+--data_out[3] is data_out[3]
+--operation mode is output
+
+data_out[3] = OUTPUT(A1L12Q);
+
+
+--data_out[4] is data_out[4]
+--operation mode is output
+
+data_out[4] = OUTPUT(A1L42Q);
+
+
+--data_out[5] is data_out[5]
+--operation mode is output
+
+data_out[5] = OUTPUT(A1L62Q);
+
+
+--data_out[6] is data_out[6]
+--operation mode is output
+
+data_out[6] = OUTPUT(A1L82Q);
+
+
+--data_out[7] is data_out[7]
+--operation mode is output
+
+data_out[7] = OUTPUT(A1L03Q);
+
+

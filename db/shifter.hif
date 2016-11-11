@@ -1,0 +1,38 @@
+Version 5.0 Build 148 04/26/2005 SJ Full Version
+32
+1611
+OFF
+OFF
+OFF
+OFF
+OFF
+FV_OFF
+VRSM_ON
+VHSM_ON
+dc_fpga.lmf
+# entity
+shifter
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+shifter.vhd
+1478871294
+4
+# storage
+db|shifter.(0).cnf
+db|shifter.(0).cnf
+# internal_option {
+ADD_PASS_THROUGH_LOGIC_TO_INFERRED_RAMS
+ON
+AUTO_RESOURCE_SHARING
+OFF
+}
+# hierarchies {
+|
+}
+# end
+# complete
+
